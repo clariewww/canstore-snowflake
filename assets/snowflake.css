@@ -1,0 +1,59 @@
+/* Local snow crystal experiment; the dandelion styles and renderer stay intact. */
+.comparison-link{margin-left:auto;font-size:.75rem;color:var(--muted);padding:.6rem 0;border-bottom:1px solid #b9cfc3}
+.comparison-link:hover{color:var(--pink)}
+.crystal-spine{fill:#8daab7;stroke:none;opacity:.85;transition:opacity .3s}
+.branch{stroke:#7e9eac;stroke-linecap:butt;stroke-linejoin:miter}
+.seed .halo{stroke-width:1;fill-opacity:.58}
+.twig[data-depth="front"] .halo,.twig[data-depth="back"] .halo{fill-opacity:.58;stroke-width:1}
+.twig[data-depth="front"] .branch,.twig[data-depth="back"] .branch{opacity:.52}
+.person-dot{filter:none}
+.crystal-note{margin:0 0 .55rem;font-size:.65rem;line-height:1.4;color:var(--muted)}
+.scope-label{font-size:12px;fill:#466675;letter-spacing:.025em;paint-order:stroke;stroke:#f1f7fa;stroke-width:3px;stroke-linejoin:round}
+@media(max-width:800px){
+  .comparison-link{font-size:.65rem;max-width:8rem;text-align:right}
+  .crystal-note{font-size:.6rem;margin:0}
+  .pinned-view.has-selection .crystal-note{display:none}
+}
+
+/* A slow light passage follows the crystal shafts; data nodes remain still. */
+.crystal-current{fill:none;stroke:#8fbfce;stroke-width:2.2;stroke-linecap:round;opacity:0;pointer-events:none}
+.crystal-corner{stroke:#8bafa2;stroke-width:.9;stroke-linejoin:round;opacity:.6;pointer-events:none}
+.crystal-facet{stroke:#87aa9d;stroke-width:.8;stroke-linecap:round;opacity:.55;pointer-events:none}
+.has-selection .crystal-facet{opacity:.15}
+@media(prefers-reduced-motion:reduce){.crystal-current{display:none!important}}
+
+/* Faceted surfaces share an upper-left light source; colors still encode data. */
+.crystal-ridge{stroke:#ffffff;stroke-width:.65;opacity:.9;pointer-events:none}
+.crystal-glass{fill:url(#crystal-light);stroke:none;pointer-events:none}
+.crystal-core{fill:url(#crystal-light);fill-opacity:.2;stroke:none;pointer-events:none}
+.person-dot{stroke:#fbfff8;stroke-width:1.6;filter:drop-shadow(0 1px 1px #315f4f20)}
+.crystal-corner{stroke:#94b2bf;stroke-width:1;opacity:.45}
+.crystal-facet{stroke:#86a8b6;stroke-width:.9;opacity:.65}
+.has-selection .crystal-core{opacity:.35}
+.seed:hover .crystal-glass,.seed:focus-visible .crystal-glass{opacity:.65}
+@media(min-width:1100px){
+  .graph-caption{display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.4rem;max-width:44rem;width:100%;margin:0 auto;padding-top:.6rem;border-top:1px solid #bfd3c54d}
+  .graph-caption .crystal-note{margin:0;text-align:left;align-self:center;font-size:.63rem}
+  .graph-caption .graph-status{margin:0;justify-content:flex-end}
+  .graph-caption .type-legend{margin:0;justify-content:flex-start;gap:1rem}
+  .graph-caption .people-legend{margin:0;justify-content:flex-end}
+  .graph-caption .output-legend{grid-column:1/-1;grid-row:3;gap:2rem;padding-top:.2rem}
+  .graph-caption .legend-copy small{display:inline;margin-left:.3rem;font-size:.62rem}
+  .details-empty{font-size:.67rem;margin-top:.4rem}
+}
+@media(prefers-reduced-motion:reduce){.crystal-glass{transition:none}}
+
+/* Frosted mint and ice blue: semantic PI and personnel colors are retained. */
+:root{--ink:#233e4b;--muted:#526b77;--paper:#f2f8fa}
+body{background:radial-gradient(ellipse at 73% 18%,#ffffff 0,transparent 55%),linear-gradient(150deg,#eef6fa,#f3faf8);background-attachment:fixed}
+.crystal-frame{fill:none;stroke:#9dbac5;stroke-width:.8;opacity:.6;pointer-events:none}
+.has-selection .crystal-frame{opacity:.22}
+.standard .halo{fill:#d6eeea;stroke:#7da7ac}
+.standard .seed-heart{fill:#668e98}
+.legend .standard-key{background:#d6eeea;border-color:#7da7ac}
+.legend .standard-key::after{background:#668e98}
+.type-legend svg{fill:#e9f3f5;stroke:#7796a3}
+.comparison-link{border-color:#c2d5df}
+.detail-shell{background:#fbfdfe;border-color:#bfd3dc;box-shadow:0 5px 20px #27495709}
+#tooltip{background:#fafdfff5;box-shadow:0 6px 30px #27495714,inset 0 0 0 1px #bdd2db80}
+@media(max-width:800px){.pinned-view{background:linear-gradient(155deg,#eef6fa,#f3faf8);box-shadow:0 8px 15px #27495705}}

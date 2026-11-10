@@ -141,9 +141,9 @@
   flowerLayout.labels.forEach(({scope, count, angle}) => {
     const groupInfo = [...scopes.values()].find(info => info.label === scope);
     if (count < 4 && !groupInfo?.provisional) return;
-    const [lx, ly] = point(angle, 395);
+    const [lx, ly] = point(angle, 425);
     const label = el('text', {x:lx, y:ly, class:'scope-label', 'text-anchor':'middle'}, labelLayer);
-    label.textContent = groupInfo?.provisional ? groupInfo.shortLabel : scope.startsWith('Unassigned') ? scope.replace('Unassigned · ', '') + ' · unassigned' : scope;
+    label.textContent = groupInfo?.shortLabel ? groupInfo.shortLabel : scope.startsWith('Unassigned') ? scope.replace('Unassigned · ', '') + ' · unassigned' : scope;
   });
   document.querySelectorAll('[data-type-symbol]').forEach(symbol => {
     el('path', {d:seedOutline(symbol.getAttribute('data-type-symbol'), 10)}, symbol);
@@ -354,7 +354,7 @@
     facts.className='record-facts'; related.className='record-related'; body.append(facts,related);
     if(selection.kind==='output'){
       const scopeInfo=scopes.get(item.publication_id);
-      metadata(facts,[['Project year',`Year ${item.year}`],['Output type',item.type],['Research scope',scopeInfo.provisional?scopeInfo.label:item.scope||'Unassigned'],['Status',item.status]]);
+      metadata(facts,[['Project year',`Year ${item.year}`],['Output type',item.type],['Research scope',scopeInfo.label],['Status',item.status]]);
       if(scopeInfo.provisional)text('p',scopeInfo.needsReview?'Topic needs review; original scope is unassigned.':'Provisional topic grouping; original scope is unassigned.',facts,'record-note scope-status');
       if(item.venue)text('p',item.venue,facts,'record-note');
       if(item.doi){
@@ -472,7 +472,7 @@
   }
   function observeChapters() {
     // Scope labels are hidden on phones; reclaim their margins without moving nodes.
-    svg.setAttribute('viewBox', compactView.matches ? '70 15 760 800' : '10 0 880 830');
+    svg.setAttribute('viewBox', compactView.matches ? '70 15 760 800' : '-10 -25 920 880');
     chapterObserver?.disconnect();
     const line=innerHeight*(compactView.matches ? .76 : .55);
     chapterObserver=new IntersectionObserver(followChapters,{rootMargin:`0px 0px -${Math.max(0,innerHeight-line)}px 0px`,threshold:[0,1]});

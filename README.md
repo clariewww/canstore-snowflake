@@ -35,10 +35,7 @@ Workstream participation is separate from publication authorship. No publication
 links have been verified. Partial rosters omit ambiguous or non-DIRECT references.
 Discover and Develop profiles and all original source records remain unchanged.
 
-DIRECT-associated outputs with blank source scopes use provisional topic groups:
-9 energy systems/governance, 5 community engagement/rights, 2 carbon conversion/CCUS,
-2 transdisciplinary/place-based research, and 2 needing review. The joint Discover/Direct
-record is included once. These display groups are separate from source scopes and verified workstreams.
+All 76 outputs use the 13 scope assignments in CANSTORE-current-scopes_LL.xlsx, supplied on November 10, 2026. The assignments join by publication ID in assets/dandelion_scopes.js and apply to layout, tooltips, and details. No output remains unassigned or marked Needs review. The original records remain intact in the data payload; the reviewed scope layer takes precedence. Scope membership remains separate from workstream participation.
 
 Narrative titles and descriptions are intentionally left as placeholders.
 Outfit fonts are distributed with their included Open Font License.

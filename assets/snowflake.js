@@ -142,7 +142,7 @@
     const groupInfo = [...scopes.values()].find(info => info.label === scope);
     if (count < 4 && !groupInfo?.provisional) return;
     const [lx, ly] = point(angle, 425);
-    const label = el('text', {x:lx, y:ly, class:'scope-label', 'text-anchor':'middle'}, labelLayer);
+    const label = el('text', {x:lx, y:ly, class:'scope-label', 'text-anchor':Math.cos(angle) > .35 ? 'start' : Math.cos(angle) < -.35 ? 'end' : 'middle'}, labelLayer);
     label.textContent = groupInfo?.shortLabel ? groupInfo.shortLabel : scope.startsWith('Unassigned') ? scope.replace('Unassigned · ', '') + ' · unassigned' : scope;
   });
   document.querySelectorAll('[data-type-symbol]').forEach(symbol => {
